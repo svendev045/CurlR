@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tmp="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 12)"
+tmp="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 6)"
 ip="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep ipaddr | cut -f1 -d'=')"
 echo "$ip is ip"
 l="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep list | cut -f1 -d'=')"
