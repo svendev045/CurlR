@@ -1,0 +1,3 @@
+list=fef1ab7a-22ef-42c3-a272-c6d640f4db0f
+ipaddr=20.106.97.177
+args=-url https://20.106.97.177:443/ -psk merlin -listener $l -proto https -debug
