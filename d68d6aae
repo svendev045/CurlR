@@ -1,5 +1,5 @@
 #!/bin/bash
-tmp="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 6)"
+tmp="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 12)"
 echo "$tmp is tmp"
 ip="$(curl -s https://raw.githubusercontent.com/svendev045/CurlR/main/config | grep ^ipaddr | cut -f2 -d'=')"
 echo "$ip is ip"
